@@ -1,0 +1,64 @@
+$primary: #3b599c
+$secondary: #dbeaf9
+$white: #fff
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+  border: none
+body
+  font-family: Montserrat
+  margin: 3em 2em
+  background: $white
+  @media all and (min-width: 600px)
+    max-width: 500px
+    margin: 4em auto
+
+h1
+  margin: 1rem 0
+  font-weight: 500
+
+form
+  display: -webkit-flex
+  display: -ms-flex
+  display: flex
+  flex-direction: column
+
+  input, textarea, button, select
+    padding: 1rem
+    font-size: 1em
+
+  textarea
+    resize: vertical
+
+  button
+    padding: 1rem 2rem
+    background: $primary
+    border: none
+
+    color: #fff
+
+.string-regex, .select-button, #text
+    border-radius: 7px
+    overflow: hidden
+    box-shadow: 0 5px 20px #e6e6e6
+    margin: 1em 0
+
+.string-regex
+  >*
+    width: 100%
+    border: none
+  textarea
+    border-bottom: 1px solid $secondary
+
+.select-button
+  margin: 1em 0
+  display: -webkit-flex
+  display: -ms-flex
+  display: flex
+
+  select
+    flex-grow: 1
+    background: #fff
+  button
+    // flex-grow: 1

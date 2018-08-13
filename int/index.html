@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+  <link href="style.css" rel="stylesheet"/>
+  <title>Regex Tester</title>
+</head>
+<body>
+  <h1>Regex Tester</h1>
+  <form>
+    <div class="string-regex">
+      <textarea id="string" placeholder="String" value="unicorns and rainbows and Vegan Cupcakes"></textarea>
+      <input id="regex" placeholder="Regular Expresion"/>
+    </div>
+    <div class="select-button">
+      <select id="flag">
+        <option value="">None</option>
+        <option value="g" selected="selected">Global</option>
+        <option value="i">Ignore Case</option>
+      </select>
+      <button id="btn" type="button">Submit</button>
+    </div>
+    <textarea id="text" cols="30" rows="10" placeholder="Result"></textarea>
+  </form>
+  <script src="script-min.js"></script>
+</body>

@@ -1,0 +1,57 @@
+SINGLE-CHAR
+  digit \d -> 0-9. Try \d\d\d
+  word  \w -> A-Za-z0-9. Try \w\w\w
+  space \s -> " "
+  dot    . -> Any character whatsoever
+  literal dot \. -> .
+
+QUANTIFIERS
+  * -> 0 or more
+  + -> 1 or more
+  ? -> 0 or 1
+  {min,max}
+  {n}
+
+POSITION
+  ^ -> beginning
+  $ -> end
+  \b -> word boundary (limit)
+
+META-CHARS
+  charclass [] -> [abc][-.]
+
+
+
+Try:
+  ^\w+$  (first word line)
+  \b\w{4}\b (4 letters word)
+  \(?\d{3}[-.)]\d{3}[-.]\d{4} (the telephone numbers)
+  [0-5]{3} (3 digit number between 0 and 5)
+  [^0-5]{3} (anything except sequence between 0 and 5)
+  (\w+),\s(\w+) (and replace with: $2 $1)
+  \[(.*?)\]\(http.*?\) (replace with: <a href="$2">$1</a>)
+  \b(\w+)\s\1\b (same word separated with a space)
+
+
+
+These are some phone numbers /1.
+you Also can call me at /1
+of course I'm alwais reachable ar /1.
+
+The colors of the rainbow have many colours and
+the rainbow does not have a single colour
+
+the lynk this is quite a link don't you think? l nk l(nk
+single single
+goodbye and
+Go go go rainbow rainbow!
+
+marques@gmail.com
+marq_ues@hotmail.com
+marques.ramos@hotmail.edu
+
+Alvaro Marques
+fdnsaoifda fdnsakfjdsan
+dafdas kfndsoa
+
+[google](http://google.com), [test] [itp](http://itp.nty.edu) [Coding Rainbow](http://codingrainbow.com)

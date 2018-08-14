@@ -1,3 +1,5 @@
+- var title = "Text-Interactor";
+
 <!DOCTYPE html>
 html(lang="en")
 head
@@ -5,21 +7,34 @@ head
   meta(name="viewport", content="width=device-width, initial-scale=1.0")
   meta(http-equiv="X-UA-Compatible", content="ie=edge")
   link(href="style.css" rel="stylesheet")
-  title Regex Tester
+  title= title
 body
-  h1 Regex Tester
+  h1= title
   
   form
     .string-regex
       textarea#string(placeholder="String" value="unicorns and rainbows and Vegan Cupcakes")
       input#regex(placeholder="Regular Expresion")
-    .select-button
       select#flag
         option(value="") None
         option(value="g", selected="selected") Global
         option(value="i") Ignore Case
-      button#btn(type="button") Submit
+    
+    .select-button
+      ul#functions
+        li#test Test
+        li#match Match
+        li#exec Exec
+        li#replace Replace
+        li#split Split
+      button#burger(type="button", onclick="burgerIt()")
+        .line
+        .line
+        .line
+      button#submit(type="button", onclick="doRegex()") Submit
     textarea#text(cols="30" rows="10" placeholder="Result")
     
   script(src="script-min.js")
   
+// to do:
+// flag animation icon

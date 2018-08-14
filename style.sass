@@ -1,11 +1,14 @@
 $primary: #3b599c
 $secondary: #dbeaf9
 $white: #fff
+$n-func: 5
 *
   margin: 0
   padding: 0
   box-sizing: border-box
   border: none
+  // transition: 300ms
+
 body
   font-family: Montserrat
   margin: 3em 2em
@@ -18,25 +21,29 @@ h1
   margin: 1rem 0
   font-weight: 500
 
+h2
+  font-size: .9em !important
+  font-weight: 400
+
 form
   display: -webkit-flex
   display: -ms-flex
   display: flex
   flex-direction: column
 
-  input, textarea, button, select
+  input, textarea, select, h2, #submit
     padding: 1rem
     font-size: 1em
 
   textarea
     resize: vertical
 
-  button
-    padding: 1rem 2rem
-    background: $primary
-    border: none
+button
+  cursor: pointer
 
-    color: #fff
+
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
 
 .string-regex, .select-button, #text
     border-radius: 7px
@@ -45,11 +52,19 @@ form
     margin: 1em 0
 
 .string-regex
+  display: grid
+  grid-template-columns: calc(100% - 120px) 120px
   >*
     width: 100%
-    border: none
-  textarea
+  #string
     border-bottom: 1px solid $secondary
+    grid-column: 1 / 3
+  #regex
+
+  #flag
+    background: $white
+    text-align-last: center
+    border-right: 1rem solid $white
 
 .select-button
   margin: 1em 0
@@ -57,8 +72,83 @@ form
   display: -ms-flex
   display: flex
 
-  select
-    flex-grow: 1
-    background: #fff
-  button
-    // flex-grow: 1
+
+  align-items: center
+  position: relative
+  overflow: visible
+
+  #functions
+    list-style: none
+    transition: 350ms ease-in-out
+    display: flex
+    width: 0
+
+    li
+      padding: 1em .7em
+      color: $primary
+      transition: 300ms
+      opacity: 0
+      transform: translateX(10em)
+
+      @for $i from 1 through $n-func
+        &:nth-child(#{$i})
+          transition-delay: $i * 50ms
+
+    &.active
+      width: 100%
+      padding: 0 1em
+      li
+        opacity: 1
+        transform: translateX(0)
+
+
+
+  #burger
+    background: transparent
+    padding: 1em
+    position: absolute
+    left: .7em
+    transition: 350ms ease-in-out
+
+    .line
+      width: 30px
+      border-radius: 7px
+      height: 4px
+      margin: 4px 0
+      background: $white
+      transition: inherit
+
+    &:hover
+      .line:nth-child(1)
+        margin-left: 1em
+
+      .line:nth-child(2)
+        margin-left: .5em
+
+    &:focus
+      outline: none
+
+    &.active
+      left: -5em
+      .line
+        background: $primary
+        transition: background 200ms, transform 200ms 180ms
+        &:nth-child(1)
+          transform: translateY(.37em) rotate(45deg)
+
+        &:nth-child(3)
+          transform: translateY(-.37em) rotate(-45deg)
+
+        &:nth-child(2)
+          display: none
+      &:hover .line
+        margin: 4px 0
+
+  #submit
+    padding: 1rem 2rem
+    background: $primary
+    color: #fff
+    border-radius: 7px
+    width: 100%
+
+    &.active

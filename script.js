@@ -1,43 +1,74 @@
-var string  = document.getElementById("string");
-var regex   = document.getElementById("regex")
-var flag    = document.getElementById("flag");
-var btn     = document.getElementById("btn");
-var text    = document.getElementById("text");
-var burger  = document.getElementById("burger");
-var func = document.getElementById("functions")
-function doRegex(){
-  var s = string.value;
-  var f = new RegExp(regex.value, flag.value);
+var string  = getId("string"),
+    regex   = getId("regex"),
+    flag    = getId("flag"),
+    submit  = getId("submit"),
+    text    = getId("text"),
+    burger  = getId("burger"),
+    func    = getId("functions"),
+    currentFunc,
+    matches;
 
+function getId(name){
+  return document.getElementById(name);
+};
+
+//////////////////////////////////////////////////////////
+
+function getValues(){
+  s = string.value;
+  r = new RegExp(regex.value, flag.value);
+};
+
+function burgerIt(){
+  burger.classList.toggle("active");
+  func.classList.toggle("active");
+  submit.classList.toggle("active");
+};
+
+function getFunc(e){
+  burgerIt();
+  submit.innerHTML = e + "() it!";
+  currentFunc = e;
+}
+
+function display(){
   text.value = "";
-  var matches = s.match(f);
-  // var matches = s.split(f);
 
-  console.log(matches);
-  if(matches){
+  if(typeof matches == "object"){
     for(match in matches){
       var m = matches[match] + "\n";
       text.value += m
     }
+  }else if(matches){
+    text.value = matches;
+
   }else{
     return text.value = "Not matches :(";
   }
 };
 
+function doRegex(){
+  getValues();
 
-function burgerIt(){
-  burger.classList.toggle("active");
-  func.classList.toggle("active");
-  btn.classList.toggle("active");
+  if(!string.value || !regex.value){
+    return text.value = "please write in the field!"; // <---- improve( red borders in the empty field)
+  }
+
+  switch(currentFunc){
+    case "test": matches = r.test(s);
+    break;
+
+    case "match": matches = s.match(r);
+    break;
+
+    case "exec": matches = r.exec(s);
+    break;
+
+    case "replace": matches = s.replace(r, "kittens");
+    break;
+
+    case "split": matches = s.split(r)
+  }
+
+  display();
 }
-// burger.addEventListener("click", burger);
-
-
-
-
-
-
-// Try:
-// .split
-// A rainbow is a meteorological phenomenon that is caused by reflection, refraction and dispersion of light in water droplets resulting in a spectrum of light appearing in the sky. It takes the form of a multicoloured circular arc. Rainbows caused by sunlight always appear in the section of sky directly opposite the sun.
-// \b(\W+)\b

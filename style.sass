@@ -47,7 +47,7 @@ button
 
 .string-regex, .select-button, #text
     border-radius: 7px
-    overflow: hidden
+    overflow-x: hidden
     box-shadow: 0 5px 20px #e6e6e6
     margin: 1em 0
 
@@ -71,8 +71,6 @@ button
   display: -webkit-flex
   display: -ms-flex
   display: flex
-
-
   align-items: center
   position: relative
   overflow: visible
@@ -89,19 +87,21 @@ button
       transition: 300ms
       opacity: 0
       transform: translateX(10em)
+      z-index: -5
+      cursor: pointer
 
       @for $i from 1 through $n-func
         &:nth-child(#{$i})
-          transition-delay: $i * 50ms
+          transition-delay: $i * 60ms
 
     &.active
       width: 100%
       padding: 0 1em
+
       li
         opacity: 1
         transform: translateX(0)
-
-
+        z-index: auto
 
   #burger
     background: transparent
@@ -132,20 +132,20 @@ button
       left: -5em
       .line
         background: $primary
-        transition: background 200ms, transform 200ms 180ms
+        transition: background 300ms, transform 200ms 180ms, opacity 200ms 180ms
         &:nth-child(1)
-          transform: translateY(.37em) rotate(45deg)
+          transform: translateY(.72em) rotate(45deg)
 
         &:nth-child(3)
-          transform: translateY(-.37em) rotate(-45deg)
+          transform: translateY(-.72em) rotate(-45deg)
 
         &:nth-child(2)
-          display: none
+          opacity: 0
       &:hover .line
         margin: 4px 0
 
   #submit
-    padding: 1rem 2rem
+    padding: 1rem
     background: $primary
     color: #fff
     border-radius: 7px

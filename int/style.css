@@ -37,7 +37,7 @@ button {
 
 .string-regex, .select-button, #text {
   border-radius: 7px;
-  overflow: hidden;
+  overflow-x: hidden;
   box-shadow: 0 5px 20px #e6e6e6;
   margin: 1em 0; }
 
@@ -72,23 +72,26 @@ button {
       color: #3b599c;
       transition: 300ms;
       opacity: 0;
-      transform: translateX(10em); }
+      transform: translateX(10em);
+      z-index: -5;
+      cursor: pointer; }
       .select-button #functions li:nth-child(1) {
-        transition-delay: 50ms; }
+        transition-delay: 60ms; }
       .select-button #functions li:nth-child(2) {
-        transition-delay: 100ms; }
+        transition-delay: 120ms; }
       .select-button #functions li:nth-child(3) {
-        transition-delay: 150ms; }
+        transition-delay: 180ms; }
       .select-button #functions li:nth-child(4) {
-        transition-delay: 200ms; }
+        transition-delay: 240ms; }
       .select-button #functions li:nth-child(5) {
-        transition-delay: 250ms; }
+        transition-delay: 300ms; }
     .select-button #functions.active {
       width: 100%;
       padding: 0 1em; }
       .select-button #functions.active li {
         opacity: 1;
-        transform: translateX(0); }
+        transform: translateX(0);
+        z-index: auto; }
   .select-button #burger {
     background: transparent;
     padding: 1em;
@@ -112,17 +115,17 @@ button {
       left: -5em; }
       .select-button #burger.active .line {
         background: #3b599c;
-        transition: background 200ms, transform 200ms 180ms; }
+        transition: background 300ms, transform 200ms 180ms, opacity 200ms 180ms; }
         .select-button #burger.active .line:nth-child(1) {
-          transform: translateY(0.37em) rotate(45deg); }
+          transform: translateY(0.72em) rotate(45deg); }
         .select-button #burger.active .line:nth-child(3) {
-          transform: translateY(-0.37em) rotate(-45deg); }
+          transform: translateY(-0.72em) rotate(-45deg); }
         .select-button #burger.active .line:nth-child(2) {
-          display: none; }
+          opacity: 0; }
       .select-button #burger.active:hover .line {
         margin: 4px 0; }
   .select-button #submit {
-    padding: 1rem 2rem;
+    padding: 1rem;
     background: #3b599c;
     color: #fff;
     border-radius: 7px;

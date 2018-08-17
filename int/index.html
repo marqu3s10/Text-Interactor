@@ -9,9 +9,10 @@
 </head>
 <body>
   <h1>Text-Interactor</h1>
+  <p>A rainbow is a meteorological phenomenon that is caused by reflection, refraction and dispersion of light in water droplets resulting in a spectrum of light appearing in the sky. It takes the form of a multicoloured circular arc. Rainbows caused by sunlight always appear in the section of sky directly opposite the sun.</p>
   <form>
     <div class="string-regex">
-      <textarea id="string" placeholder="String" value="unicorns and rainbows and Vegan Cupcakes"></textarea>
+      <textarea id="string" placeholder="String"></textarea>
       <input id="regex" placeholder="Regular Expresion"/>
       <select id="flag">
         <option value="">None</option>
@@ -21,22 +22,22 @@
     </div>
     <div class="select-button">
       <ul id="functions">
-        <li id="test">Test</li>
-        <li id="match">Match</li>
-        <li id="exec">Exec</li>
-        <li id="replace">Replace</li>
-        <li id="split">Split</li>
+        <li id="test" onclick="getFunc('test')">Test</li>
+        <li id="match" onclick="getFunc('match')">Match</li>
+        <li id="exec" onclick="getFunc('exec')">Exec</li>
+        <li id="replace" onclick="getFunc('replace')">Replace</li>
+        <li id="split" onclick="getFunc('split')">Split</li>
       </ul>
       <button id="burger" type="button" onclick="burgerIt()">
         <div class="line"></div>
         <div class="line"></div>
         <div class="line"></div>
       </button>
-      <button id="submit" type="button" onclick="doRegex()">Submit</button>
+      <button id="submit" type="button" onclick="doRegex()"><- Select</button>
     </div>
     <textarea id="text" cols="30" rows="10" placeholder="Result"></textarea>
   </form>
-  <script src="script-min.js"></script>
+  <script src="../script.js"></script>
 </body>
 <!-- to do:-->
 <!-- flag animation icon-->

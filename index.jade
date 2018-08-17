@@ -10,10 +10,10 @@ head
   title= title
 body
   h1= title
-  
+  p A rainbow is a meteorological phenomenon that is caused by reflection, refraction and dispersion of light in water droplets resulting in a spectrum of light appearing in the sky. It takes the form of a multicoloured circular arc. Rainbows caused by sunlight always appear in the section of sky directly opposite the sun.
   form
     .string-regex
-      textarea#string(placeholder="String" value="unicorns and rainbows and Vegan Cupcakes")
+      textarea#string(placeholder="String")
       input#regex(placeholder="Regular Expresion")
       select#flag
         option(value="") None
@@ -22,19 +22,20 @@ body
     
     .select-button
       ul#functions
-        li#test Test
-        li#match Match
-        li#exec Exec
-        li#replace Replace
-        li#split Split
+        li#test(onclick="getFunc('test')") Test
+        li#match(onclick="getFunc('match')") Match
+        li#exec(onclick="getFunc('exec')") Exec
+        li#replace(onclick="getFunc('replace')") Replace
+        li#split(onclick="getFunc('split')") Split
+        
       button#burger(type="button", onclick="burgerIt()")
         .line
         .line
         .line
-      button#submit(type="button", onclick="doRegex()") Submit
+      button#submit(type="button", onclick="doRegex()") <- Select
     textarea#text(cols="30" rows="10" placeholder="Result")
     
-  script(src="script-min.js")
+  script(src="../script.js")
   
 // to do:
 // flag animation icon

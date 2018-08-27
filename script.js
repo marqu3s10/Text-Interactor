@@ -1,6 +1,7 @@
 var string  = getId("string"),
     regex   = getId("regex"),
     flag    = getId("flag"),
+    replace = getId("replace"),
     submit  = getId("submit"),
     text    = getId("text"),
     burger  = getId("burger"),
@@ -17,6 +18,7 @@ function getId(name){
 function getValues(){
   s = string.value;
   r = new RegExp(regex.value, flag.value);
+  rep = replace.value;
 };
 
 function burgerIt(){
@@ -29,6 +31,13 @@ function getFunc(e){
   burgerIt();
   submit.innerHTML = e + "() it!";
   currentFunc = e;
+
+
+  if(currentFunc === "replace"){
+    replace.classList.add("active");
+  }else{
+    replace.classList.remove("active");
+  }
 }
 
 function display(){
@@ -55,19 +64,29 @@ function doRegex(){
   }
 
   switch(currentFunc){
-    case "test": matches = r.test(s);
-    break;
+    case "test":
+      matches = r.test(s);
+      break;
 
-    case "match": matches = s.match(r);
-    break;
+    case "match":
+      matches = s.match(r);
+      break;
 
-    case "exec": matches = r.exec(s);
-    break;
+    case "exec":
+      matches = r.exec(s);
+      break;
 
-    case "replace": matches = s.replace(r, "kittens");
-    break;
+    case "replace":
+      matches = s.replace(r, rep);
+      break;
 
-    case "split": matches = s.split(r)
+    case "split":
+      matches = s.split(r);
+      break;
+
+    default:
+      // popup "First select one!"
+      // submit.innerHTML = ""
   }
 
   display();
